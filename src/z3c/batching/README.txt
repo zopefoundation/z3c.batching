@@ -1,12 +1,14 @@
-===============
+
+.. contents::
+
 Simple Batching
-===============
+---------------
 
 This module implements a simple batching mechanism that allows you to split a
 large sequence into smaller batches. Let's start by creating a simple list,
 which will be our full sequence:
 
-Batch on empty root
+Batch on empty root:
 
   >>> from z3c.batching.batch import Batch
   >>> batch = Batch([], size=3)
@@ -82,7 +84,7 @@ You can also get an element by index, which is relative to the batch:
   >>> batch[2]
   'nine'
 
-Slicing 
+Slicing:
 
   >>> batch[:1]
   ['seven']
@@ -117,7 +119,7 @@ You can also iterate through the batch:
   >>> iterator.next()
   'nine'
 
-Batch also implement some of IReadSequence interface
+Batch also implement some of IReadSequence interface:
 
   >>> 'eight' in batch
   True
@@ -147,7 +149,7 @@ The end index of the batch is immediately computed:
   >>> batch.end
   8
 
-The UI often requires that the number of the btach and the total number of
+The UI often requires that the number of the batch and the total number of
 batches is computed:
 
   >>> batch.number
@@ -185,13 +187,13 @@ the first and last element of the batch:
   'nine'
 
 
-Total batches
+Total batches:
 
   >>> batch = Batch(sequence[:-1], size=3)
   >>> batch.total
   4
 
-We can get access to all batches
+We can have access to all batches:
 
   >>> len(batch.batches)
   4
@@ -213,19 +215,43 @@ We can get access to all batches
   >>> batch.batches[-2]
   <Batch start=6, size=3>
 
-Slicing
+Slicing:
 
   >>> batch.batches[:1]
   [<Batch start=0, size=3>]
-	
+
   >>> batch.batches[:]
   [<Batch start=0, size=3>, <Batch start=3, size=3>, <Batch start=6, size=3>, <Batch start=9, size=3>]
-	
+
   >>> batch.batches[1:2]
   [<Batch start=3, size=3>]
-	
+
   >>> batch.batches[1:]
   [<Batch start=3, size=3>, <Batch start=6, size=3>, <Batch start=9, size=3>]
 
   >>> batch.batches[10:]
   []
+
+  >>> batch.batches[2:50]
+  [<Batch start=6, size=3>, <Batch start=9, size=3>]
+
+Batch neighbourhood of a large batch list
+-----------------------------------------
+
+When the full list of batches is too large to be displayed in a user interface,
+we want to display only a subset of all the batches.
+A helper function is provided for that purpose:
+
+First build a large sequence of batches (or anything else):
+
+  >>> batches = range(100)
+
+Then extract only the first and last items, as well as the neighbourhood of the
+46th item (index = 45). We want 3 neighbours at the left, 5 at the right:
+
+  >>> from z3c.batching.batch import first_neighbours_last
+  >>> first_neighbours_last(batches, 45, 3, 5)
+  [0, None, 42, 43, 44, 45, 46, 47, 48, 49, 50, None, 99]
+
+'None' can be used to display a separator in a user interface (see z3c.table) 
+
