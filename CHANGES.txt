@@ -2,8 +2,10 @@
 CHANGES
 =======
 
-1.2.0 (unreleased)
+1.1.1 (unreleased)
 ------------------
+
+- Standardize namespace __init__
 
 - New feature: Subset batch.
   Sometimes (for performance reasons), even though the user needs
