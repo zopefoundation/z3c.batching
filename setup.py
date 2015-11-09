@@ -27,7 +27,7 @@ setup(name='z3c.batching',
       version='1.2.0dev',
       author='Zope Corporation and Contributors',
       author_email='zope-dev@zope.org',
-      description='Batching',
+      description='List batching support',
       long_description=(
           read('README.txt')
           + '\n\n'
