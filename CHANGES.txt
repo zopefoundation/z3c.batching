@@ -7,6 +7,9 @@ CHANGES
 
 - Standardize namespace __init__
 
+2.0.0 (2013-02-25)
+------------------
+
 - New feature: Subset batch.
   Sometimes (for performance reasons), even though the user needs
   a batched UI, we want to limit the computation to the
