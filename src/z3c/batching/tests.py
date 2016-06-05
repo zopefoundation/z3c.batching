@@ -15,19 +15,13 @@
 
 import doctest
 import unittest
-from z3c.batching import batch
-
-__docformat__ = "reStructuredText"
 
 
 def test_suite():
-    return unittest.TestSuite((
-        doctest.DocFileSuite(
-                'README.txt',
-                optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS),
-        doctest.DocFileSuite(
-                'subset.txt',
-                optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS),
-        doctest.DocTestSuite(batch,
-                optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS),
-        ))
+    optionflags = (doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS |
+                   doctest.REPORT_ONLY_FIRST_FAILURE)
+    return unittest.TestSuite([
+        doctest.DocFileSuite('README.txt', optionflags=optionflags),
+        doctest.DocFileSuite('subset.txt', optionflags=optionflags),
+        doctest.DocTestSuite('z3c.batching.batch', optionflags=optionflags),
+    ])
