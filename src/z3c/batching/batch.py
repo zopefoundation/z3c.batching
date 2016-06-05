@@ -11,11 +11,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Batching Implementation
-
-$Id$
-"""
-__docformat__ = 'restructuredtext'
+"""Batching Implementation"""
 
 import zope.interface
 from zope.schema.fieldproperty import FieldProperty
@@ -24,9 +20,12 @@ from zope.interface.common.sequence import IFiniteSequence
 from z3c.batching import interfaces
 
 
+__docformat__ = 'restructuredtext'
+
+
+@zope.interface.implementer(interfaces.IBatch)
 class Batch(object):
     """Batch implementation. See IBatch"""
-    zope.interface.implements(interfaces.IBatch)
 
     start = FieldProperty(interfaces.IBatch['start'])
     size = FieldProperty(interfaces.IBatch['size'])
@@ -68,7 +67,7 @@ class Batch(object):
 
     @property
     def index(self):
-        return self.start / self.size
+        return self.start // self.size
 
     @property
     def number(self):
@@ -78,7 +77,7 @@ class Batch(object):
     @property
     def total(self):
         """See interfaces.IBatch"""
-        total = self._length / self.size
+        total = self._length // self.size
         if self._length % self.size:
             total += 1
         return total
@@ -109,6 +108,8 @@ class Batch(object):
 
     def __getitem__(self, key):
         """See zope.interface.common.sequence.IMinimalSequence"""
+        if isinstance(key, slice):
+            return self.__getslice__(*key.indices(self._trueSize))
         if key >= self._trueSize:
             raise IndexError('batch index out of range')
         return self.sequence[self.start + key]
@@ -128,7 +129,9 @@ class Batch(object):
         else:
             return False
 
-    def __getslice__(self, i, j):
+    def __getslice__(self, i, j, k=1):
+        if k != 1:
+            raise ValueError('extended slicing not supported', k)
         if j > self.end:
             j = self._trueSize
 
@@ -144,16 +147,19 @@ class Batch(object):
     def __nonzero__(self):
         return self._trueSize != 0
 
+    # XXX __bool__ on py3!
+
     def __repr__(self):
         return '<%s start=%i, size=%i>' % (
             self.__class__.__name__, self.start, self.size)
 
 
+@zope.interface.implementer(IFiniteSequence)
 class Batches(object):
     """A sequence object representing all the batches.
-       Used by a Batch.
+
+    Used by a Batch.
     """
-    zope.interface.implements(IFiniteSequence)
 
     def __init__(self, batch):
         self.size = batch.size
@@ -165,6 +171,8 @@ class Batches(object):
         return self.total
 
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            return self.__getslice__(*key.indices(self.total))
         if key not in self._batches:
             if key < 0:
                 key = self.total + key
@@ -178,7 +186,9 @@ class Batches(object):
         except KeyError:
             raise IndexError(key)
 
-    def __getslice__(self, i, j):
+    def __getslice__(self, i, j, k=1):
+        if k != 1:
+            raise ValueError('extended slicing not supported')
         j = min(j, self.total)
         return [self[idx] for idx in range(i, j)]
 

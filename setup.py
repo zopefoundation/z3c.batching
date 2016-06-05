@@ -11,10 +11,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Setup for z3c.batching package
-
-$Id$
-"""
+"""Setup for z3c.batching package"""
 import os
 from setuptools import setup, find_packages
 
@@ -24,7 +21,7 @@ def read(*rnames):
 
 
 setup(name='z3c.batching',
-      version='2.0.2.dev0',
+      version='2.1.0.dev0',
       author='Zope Corporation and Contributors',
       author_email='zope-dev@zope.org',
       description='List batching support',
@@ -52,6 +49,10 @@ setup(name='z3c.batching',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: Implementation :: CPython',
+          'Programming Language :: Python :: Implementation :: PyPy',
           'Natural Language :: English',
           'Operating System :: OS Independent',
           'Topic :: Internet :: WWW/HTTP',

@@ -2,10 +2,10 @@
 CHANGES
 =======
 
-2.0.2 (unreleased)
+2.1.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Support Python 3.3 through 3.5.
 
 
 2.0.1 (2015-11-09)

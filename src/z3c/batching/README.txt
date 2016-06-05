@@ -112,11 +112,11 @@ If you ask for index that is out of range, an index error is raised:
 You can also iterate through the batch:
 
   >>> iterator = iter(batch)
-  >>> iterator.next()
+  >>> next(iterator)
   'seven'
-  >>> iterator.next()
+  >>> next(iterator)
   'eight'
-  >>> iterator.next()
+  >>> next(iterator)
   'nine'
 
 Batch also implement some of IReadSequence interface:

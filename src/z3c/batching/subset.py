@@ -11,8 +11,11 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Batching Implementation for subsets. Sometimes subsets
-can have pre batched values"""
+"""Batching implementation for subsets.
+
+Sometimes subsets can have pre-batched values.
+"""
+
 from z3c.batching.batch import Batch, Batches
 
 
@@ -48,6 +51,8 @@ class SubsetBatches(Batches):
         self.length = batch._length
 
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            return self.__getslice__(*key.indices(self.total))
         if key not in self._batches:
             if key < 0:
                 key = self.total + key
@@ -87,6 +92,8 @@ class SubsetBatch(Batch):
 
     def __getitem__(self, key):
         """See zope.interface.common.sequence.IMinimalSequence"""
+        if isinstance(key, slice):
+            return self.__getslice__(*key.indices(self._trueSize))
         if key >= self._trueSize:
             raise IndexError('batch index out of range')
         return self.sequence[key]
