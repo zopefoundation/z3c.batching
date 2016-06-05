@@ -268,8 +268,8 @@ def first_neighbours_last(batches, currentBatchIdx, nb_left, nb_right):
     # setup some batches and indexes
     firstIdx = 0
     lastIdx = len(batches) - 1
-    assert(currentBatchIdx >= 0 and currentBatchIdx <= lastIdx)
-    assert(nb_left >= 0 and nb_right >= 0)
+    assert currentBatchIdx >= 0 and currentBatchIdx <= lastIdx
+    assert nb_left >= 0 and nb_right >= 0
     prevIdx = currentBatchIdx - nb_left
     nextIdx = currentBatchIdx + 1
     firstBatch = batches[0]
