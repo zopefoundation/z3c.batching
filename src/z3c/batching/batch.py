@@ -273,7 +273,7 @@ def first_neighbours_last(batches, currentBatchIdx, nb_left, nb_right):
     prevIdx = currentBatchIdx - nb_left
     nextIdx = currentBatchIdx + 1
     firstBatch = batches[0]
-    lastBatch = batches[len(batches)-1]
+    lastBatch = batches[lastIdx]
 
     # add first batch
     if firstIdx < currentBatchIdx:
