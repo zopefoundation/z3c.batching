@@ -11,13 +11,12 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Batching Support
+"""Batching Support """
 
-$Id$
-"""
-__docformat__ = 'restructuredtext'
 from zope.interface.common import sequence
 import zope.schema
+
+__docformat__ = 'restructuredtext'
 
 
 class IBatch(sequence.IFiniteSequence):

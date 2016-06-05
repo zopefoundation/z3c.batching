@@ -11,15 +11,13 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Tag test setup
-
-$Id$
-"""
-__docformat__ = "reStructuredText"
+"""Tag test setup"""
 
 import doctest
 import unittest
 from z3c.batching import batch
+
+__docformat__ = "reStructuredText"
 
 
 def test_suite():
