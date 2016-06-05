@@ -14,6 +14,8 @@ Batch on empty root:
   >>> batch = Batch([], size=3)
   >>> len(batch)
   0
+  >>> bool(batch)
+  False
   >>> batch.firstElement
   Traceback (most recent call last):
   ...
@@ -74,6 +76,11 @@ for:
 
   >>> len(Batch(sequence, start=12, size=3))
   1
+
+Like any sequence, a non-empty batch is true-ish in a boolean context:
+
+  >>> bool(batch)
+  True
 
 You can also get an element by index, which is relative to the batch:
 
