@@ -60,7 +60,7 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Internet :: WWW/HTTP',
         'Framework :: Zope3'],
-    url='https://pypi.python.org/pypi/z3c.batching',
+    url='https://pypi.org/project/z3c.batching',
     license='ZPL 2.1',
     packages=find_packages('src'),
     package_dir={'': 'src'},
