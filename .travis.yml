@@ -13,7 +13,7 @@ matrix:
       dist: xenial
       sudo: true
 install:
-    - pip install -U pip setuptools
+    - pip install -U pip setuptools zope.testrunner
     - pip install -U coveralls coverage
     - pip install -U -e .[test]
 script:
