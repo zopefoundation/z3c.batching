@@ -33,70 +33,70 @@ class IBatch(sequence.IFiniteSequence):
     batches = zope.interface.Attribute('Batches')
 
     start = zope.schema.Int(
-        title=u'Start Index',
-        description=(u'The index of the sequence at which the batch starts. '
-                     u'If the full sequence is empty, the value is -1.'),
+        title='Start Index',
+        description=('The index of the sequence at which the batch starts. '
+                     'If the full sequence is empty, the value is -1.'),
         min=-1,
         default=0,
         required=True)
 
     size = zope.schema.Int(
-        title=u'Batch Size',
-        description=u'The maximum size of the batch.',
+        title='Batch Size',
+        description='The maximum size of the batch.',
         min=1,
         default=20,
         required=True)
 
     end = zope.schema.Int(
-        title=u'End Index',
-        description=u'The index of the sequence at which the batch ends.',
+        title='End Index',
+        description='The index of the sequence at which the batch ends.',
         min=-1,
         default=0,
         readonly=True,
         required=True)
 
     index = zope.schema.Int(
-        title=u'Current Batch Index',
-        description=u'The index of the batch in relation to all batches.',
+        title='Current Batch Index',
+        description='The index of the batch in relation to all batches.',
         min=0,
         readonly=True,
         required=True)
 
     number = zope.schema.Int(
-        title=u'Current Batch Number',
-        description=u'The number of the batch in relation to all batches.',
+        title='Current Batch Number',
+        description='The number of the batch in relation to all batches.',
         min=1,
         readonly=True,
         required=True)
 
     total = zope.schema.Int(
-        title=u'Total Number of Batches',
-        description=u'The total number of batches available.',
+        title='Total Number of Batches',
+        description='The total number of batches available.',
         min=1,
         readonly=True,
         required=True)
 
     next = zope.schema.Field(
-        title=u'Next Batch',
-        description=u'The next batch of the sequence; ``None`` if last.',
+        title='Next Batch',
+        description='The next batch of the sequence; ``None`` if last.',
         readonly=True,
         required=True)
 
     previous = zope.schema.Field(
-        title=u'Previous Batch',
-        description=u'The previous batch of the sequence; ``None`` if first.',
+        title='Previous Batch',
+        description='The previous batch of the sequence; ``None`` if first.',
         readonly=True,
         required=True)
 
     firstElement = zope.schema.Field(
-        title=u'First Element',
-        description=u'The first element of the batch.',
+        title='First Element',
+        description='The first element of the batch.',
         readonly=True,
         required=True)
 
     totalElements = zope.schema.Int(
-        title=u'Total Number of Elements',
-        description=u'Return the length of the full sequence.',
+        title='Total Number of Elements',
+        description='Return the length of the full sequence.',
         min=1,
         readonly=True,
         required=True)

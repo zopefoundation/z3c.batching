@@ -27,7 +27,7 @@ setup(
     name='z3c.batching',
     version='3.0.dev0',
     author='Zope Corporation and Contributors',
-    author_email='zope-dev@zope.org',
+    author_email='zope-dev@zope.dev',
     description='List batching support',
     long_description=''.join([
         read('README.txt'),
@@ -68,6 +68,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['z3c'],
+    python_requires='>=3.7',
     install_requires=[
         'setuptools',
         'zope.interface',

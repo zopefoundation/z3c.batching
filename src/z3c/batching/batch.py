@@ -24,7 +24,7 @@ __docformat__ = 'restructuredtext'
 
 
 @zope.interface.implementer(interfaces.IBatch)
-class Batch(object):
+class Batch:
     """Batch implementation. See IBatch"""
 
     start = FieldProperty(interfaces.IBatch['start'])
@@ -150,7 +150,7 @@ class Batch(object):
 
 
 @zope.interface.implementer(IFiniteSequence)
-class Batches(object):
+class Batches:
     """A sequence object representing all the batches.
 
     Used by a Batch.
