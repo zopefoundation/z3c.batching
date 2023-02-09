@@ -13,8 +13,9 @@
 ##############################################################################
 """Batching Support """
 
-from zope.interface.common import sequence
 import zope.schema
+from zope.interface.common import sequence
+
 
 __docformat__ = 'restructuredtext'
 

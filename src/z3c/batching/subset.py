@@ -16,7 +16,8 @@
 Sometimes subsets can have pre-batched values.
 """
 
-from z3c.batching.batch import Batch, Batches
+from z3c.batching.batch import Batch
+from z3c.batching.batch import Batches
 
 
 class EmptyBatch(Batch):

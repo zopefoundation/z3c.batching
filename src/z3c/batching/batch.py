@@ -14,8 +14,8 @@
 """Batching Implementation"""
 
 import zope.interface
-from zope.schema.fieldproperty import FieldProperty
 from zope.interface.common.sequence import IFiniteSequence
+from zope.schema.fieldproperty import FieldProperty
 
 from z3c.batching import interfaces
 
