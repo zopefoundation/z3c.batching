@@ -16,7 +16,8 @@
 Sometimes subsets can have pre-batched values.
 """
 
-from z3c.batching.batch import Batch, Batches
+from z3c.batching.batch import Batch
+from z3c.batching.batch import Batches
 
 
 class EmptyBatch(Batch):
@@ -47,7 +48,7 @@ class EmptyBatch(Batch):
 class SubsetBatches(Batches):
 
     def __init__(self, batch):
-        super(SubsetBatches, self).__init__(batch)
+        super().__init__(batch)
         self.length = batch._length
 
     def __getitem__(self, key):
