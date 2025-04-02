@@ -15,7 +15,6 @@
 
 import os
 
-from setuptools import find_packages
 from setuptools import setup
 
 
@@ -25,7 +24,7 @@ def read(*rnames):
 
 setup(
     name='z3c.batching',
-    version='3.2.dev0',
+    version='4.0.dev0',
     author='Zope Foundation and Contributors',
     author_email='zope-dev@zope.dev',
     description='List batching support',
@@ -65,9 +64,6 @@ setup(
     ],
     url='https://github.com/zopefoundation/z3c.batching',
     license='ZPL-2.1',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    namespace_packages=['z3c'],
     python_requires='>=3.9',
     install_requires=[
         'setuptools',
