@@ -25,7 +25,7 @@ def read(*rnames):
 
 setup(
     name='z3c.batching',
-    version='3.1.dev0',
+    version='3.1',
     author='Zope Foundation and Contributors',
     author_email='zope-dev@zope.dev',
     description='List batching support',
