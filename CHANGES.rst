@@ -2,7 +2,7 @@
 CHANGES
 =======
 
-4.0 (unreleased)
+4.0 (2025-04-14)
 ----------------
 
 - Drop support for ``pkg_resources`` namespace and replace it with PEP 420
