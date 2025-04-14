@@ -18,10 +18,14 @@ import unittest
 
 
 def test_suite():
-    optionflags = (doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS |
-                   doctest.REPORT_ONLY_FIRST_FAILURE)
-    return unittest.TestSuite([
-        doctest.DocFileSuite('README.txt', optionflags=optionflags),
-        doctest.DocFileSuite('subset.txt', optionflags=optionflags),
-        doctest.DocTestSuite('z3c.batching.batch', optionflags=optionflags),
-    ])
+    optionflags = (
+        doctest.NORMALIZE_WHITESPACE
+        | doctest.ELLIPSIS
+        | doctest.REPORT_ONLY_FIRST_FAILURE
+    )
+    return unittest.TestSuite(
+        [
+            doctest.DocFileSuite(
+                "README.rst", optionflags=optionflags), doctest.DocFileSuite(
+                "subset.rst", optionflags=optionflags), doctest.DocTestSuite(
+                    "z3c.batching.batch", optionflags=optionflags), ])
