@@ -11,10 +11,10 @@ with-future-python = false
 with-macos = false
 with-windows = false
 with-docs = false
-testenv-skip-test-extra = true
 with-free-threaded-python = false
 
 [tox]
+testenv-skip-test-extra = true
 testenv-deps = [
     "zope.testrunner",
     ]
