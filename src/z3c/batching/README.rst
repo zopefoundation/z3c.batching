@@ -99,7 +99,7 @@ Slicing:
   >>> batch[1:2]
   ['eight']
 
-  >>> batch[1:]	
+  >>> batch[1:]
   ['eight', 'nine']
 
   >>> batch[:]
@@ -107,7 +107,7 @@ Slicing:
 
   >>> batch[10:]
   []
-  
+
 
 If you ask for index that is out of range, an index error is raised:
 
@@ -260,5 +260,4 @@ Then extract only the first and last items, as well as the neighbourhood of the
   >>> first_neighbours_last(batches, 45, 3, 5)
   [0, None, 42, 43, 44, 45, 46, 47, 48, 49, 50, None, 99]
 
-'None' can be used to display a separator in a user interface (see z3c.table) 
-
+'None' can be used to display a separator in a user interface (see z3c.table)
