@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "z3c.batching"
-version = "4.1"
+version = "4.2.dev0"
 description = "List batching support"
 license = "ZPL-2.1"
 classifiers = [
